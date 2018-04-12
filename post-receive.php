@@ -1,5 +1,8 @@
 <?php
+
   $payload = json_decode($_POST['payload'], true);
-  echo $payload['ref'];
+  $branch = substr($payload['ref'], strrpos($payload['ref'], '/'));
+  echo $branch;
   exec('git pull origin master');
+  
 ?>
